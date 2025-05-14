@@ -24,13 +24,18 @@
       </p>
     </div>
   </div>
-  <!-- <Modal /> -->
+  <Modal
+    :data="data"
+    :isModal="isModal"
+    :selectedMovie="selectedMovie"
+    @closeModal="isModal = false"
+  />
 </template>
 
 <script>
 import movieData from "./assets/movies";
 import Navbar from "./components/Navbar.vue";
-// import Modal from "./components/Modal.vue";
+import Modal from "./components/Modal.vue";
 import Event from "./components/Event.vue";
 
 export default {
@@ -50,7 +55,7 @@ export default {
   },
   components: {
     Navbar: Navbar,
-    // Modal: Modal,
+    Modal: Modal,
     Event: Event,
   },
 };
