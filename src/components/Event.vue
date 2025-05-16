@@ -42,5 +42,6 @@ export default {
 
 .event button {
   margin: 0;
+  border-radius: 4px;
 }
 </style>

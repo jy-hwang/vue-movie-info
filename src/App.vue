@@ -1,6 +1,6 @@
 <template>
   <Navbar />
-  <Event :text="text" />
+  <Event :text="text[eventTextNum]" />
   <SearchBar :data="data_temp" @searchMovie="searchMovie($event)" />
   <div class="btn-all">
     <button @click="showAllMovie">전체보기</button>
@@ -38,7 +38,12 @@ export default {
       data: movieData, //원본
       data_temp: [...movieData],
       selectedMovie: 0,
-      text: "NEPLIX 강렬한 운명의 드라마, 경기의 크리처!!",
+      text: [
+        "NEPLIX 강렬한 운명의 드라마, 경기의 크리처!!",
+        "디즈니 100주년 기념작, 위시",
+        "그 날, 대한민국의 운명이 바뀌었다, 서울의 봄",
+      ],
+      eventTextNum: 0,
     };
   },
   methods: {
@@ -65,6 +70,12 @@ export default {
     Modal: Modal,
     Event: Event,
     Movies: Movies,
+  },
+  mounted() {
+    console.log("mounted");
+    setTimeout(() => {
+      this.eventTextNum += 1;
+    }, 3000);
   },
 };
 </script>
