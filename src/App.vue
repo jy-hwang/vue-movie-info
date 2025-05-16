@@ -44,6 +44,7 @@ export default {
         "그 날, 대한민국의 운명이 바뀌었다, 서울의 봄",
       ],
       eventTextNum: 0,
+      interval: null,
     };
   },
   methods: {
@@ -73,9 +74,16 @@ export default {
   },
   mounted() {
     console.log("mounted");
-    setTimeout(() => {
-      this.eventTextNum += 1;
+    this.interval = setInterval(() => {
+      if (this.eventTextNum == this.text.length - 1) {
+        this.eventTextNum = 0;
+      } else {
+        this.eventTextNum += 1;
+      }
     }, 3000);
+  },
+  unmounted() {
+    clearInterval(this.interval);
   },
 };
 </script>
